@@ -1,0 +1,14 @@
+Proper name and icons
+
+Chromium support
+
+Localization:
+    Add more languages. All compatible with the logic are fully eligible.
+    Note that ie. Spanish template expects a custom localized date format,
+    that would require logic exceptions.
+
+Wider data detection:
+    author is especially affected by poor data availability.
+    application/ld+json handling
+
+Settings
