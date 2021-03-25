@@ -1,20 +1,26 @@
 {
     "manifest_version": 2,
-    "name": "Wikiped",
+    "name": "Wikired",
     "description": "Pomocnik Wiki Redaktora",
     "version": "0.1",
+    "permissions": [
+        "activeTab"
+    ],
+    "background": {
+        "page": "pages/background/background.html"
+    },
     "content_scripts": [
         {
-            "matches": [
-                "*://*/*"
-            ],
-            "js": [
-                "scripts/content.js"
-            ]
+            "matches": [ "*://*/*" ],
+            "js": [ "scripts/content.js" ]
         }
     ],
+    "browser_action": {
+        "default_icon": "images/icon.ico",
+        "default_title": "Quote",
+        "browser_style": true
+    },
     "icons": {
-        "64": "images/gq-logo-64x64.png"
+        "48": "images/icon.ico"
     }
 }
-
