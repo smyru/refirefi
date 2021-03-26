@@ -133,20 +133,22 @@ function gather() {
         if (pair.length > 1 && pair[1])
             output.push(pair);
     }
-    return output;
-}
 
-function banner(output) {
     var buffer = [];
     for (var i = 0, j = output.length; i < j; i++) {
         buffer.push(output[i].join(" = "));
     }
     var ref = "{{cytuj stronę | "+buffer.join(" | ")+" }}";
-    console.log(ref);
+
+    navigator.clipboard.writeText(ref).then(function() {
+        console.log("Clipboard written");
+        return true;
+    }, function() {
+        console.log("ERROR writing to clipboard");
+        return false;
+    });
 }
 
 browser.runtime.onMessage.addListener(msg => {
-    var output = gather();
-    banner(output);
-    return Promise.resolve({ response: { data: data, }});
+    return Promise.resolve({ response: { data: gather(), }});
 });
