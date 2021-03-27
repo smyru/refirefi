@@ -52,8 +52,8 @@ function get_link(name) {
 function gather() {
     var lang = "polski";
     var nls = {
-        "english": [ "url", "title", "author", "date", "access-date",  "publisher",    "language", "archive-url", "archive-date",   "quote", ],
-        "polski":  [ "url", "tytuł", "autor",  "data", "data dostępu", "opublikowany", "język",    "archiwum",    "zarchiwizowano", "cytat", ],
+        "english": [ "url", "title", "author", "date",  "publisher",    "language", "archive-url", "archive-date",   "quote", "access-date", ],
+        "polski":  [ "url", "tytuł", "autor",  "data", "opublikowany", "język",    "archiwum",    "zarchiwizowano", "cytat", "data dostępu", ],
     };
     // We will use English through the code
     var fields = nls["english"];
