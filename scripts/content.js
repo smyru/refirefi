@@ -57,7 +57,7 @@ function gather() {
     };
     // We will use English through the code
     var fields = nls["english"];
-    var output = [];
+    var records = [];
 
     for (var i = 0, j = fields.length; i < j; i++) {
         var pair = [ nls[lang][i] ];
@@ -131,12 +131,12 @@ function gather() {
                 break;
         }
         if (pair.length > 1 && pair[1])
-            output.push(pair);
+            records.push(pair);
     }
 
     var buffer = [];
-    for (var i = 0, j = output.length; i < j; i++) {
-        buffer.push(output[i].join(" = "));
+    for (var i = 0, j = records.length; i < j; i++) {
+        buffer.push(records[i].join(" = "));
     }
     var ref = "{{cytuj stronę | "+buffer.join(" | ")+" }}";
 
