@@ -15,7 +15,10 @@ function unpack(url) {
         uparts.slice(5).join("/"),
     ];
 }
-function sanitize_url(url) {
+function sanitize_input(s) {
+    if (!s) // Input will often be undefined, don't bother
+        return;
+
     var mapping = {
         "|": "&#124;",
         "[": "&#91;",
@@ -25,7 +28,7 @@ function sanitize_url(url) {
         "<": "&#60;",
         ">": "&#62;",
     };
-    return url.replace(/[\|\][}{><]/g, function(m) {
+    return s.replace(/[\|\][}{><]/g, function(m) {
         return mapping[m];
     });
 }
@@ -73,16 +76,16 @@ function gather() {
                 if (is_archived(url)) {
                     url = unpack(url)[1];
                 }
-                pair.push(sanitize_url(url));
+                pair.push(sanitize_input(url));
                 break;
             case "title":
                 // Prefer syndication header over raw title, as the latter
                 // is often styled with site name and stuff
-                pair.push(sanitize_url(get_meta("og:title", "property") || document.title));
+                pair.push(sanitize_input(get_meta("og:title", "property") || document.title));
                 break;
             case "author":
                 var a = get_meta("author", "name");
-                pair.push(a);
+                pair.push(sanitize_input(a));
                 break;
             case "date":
                 var dates = [ "article:published_time", "article:modified_time", ];
@@ -103,7 +106,7 @@ function gather() {
                 pair.push(iso2date(ds));
                 break;
             case "publisher":
-                pair.push(get_meta("og:site_name", "property"));
+                pair.push(sanitize_input(get_meta("og:site_name", "property")));
                 break;
             case "language":
                 var l = get_meta("og:locale", "property");
@@ -116,7 +119,7 @@ function gather() {
                 break;
             case "archive-url":
                 if (is_archived(get_raw_url()))
-                    pair.push(sanitize_url(get_raw_url()));
+                    pair.push(sanitize_input(get_raw_url()));
                 break;
             case "archive-date":
                 if (is_archived(get_raw_url())) {
@@ -127,7 +130,7 @@ function gather() {
             case "quote":
                 var so = document.getSelection();
                 if (so.type == "Range")
-                    pair.push(so.toString());
+                    pair.push(sanitize_input(so.toString()));
                 break;
         }
         if (pair.length > 1 && pair[1])
