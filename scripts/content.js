@@ -141,7 +141,7 @@ function gather() {
     for (var i = 0, j = records.length; i < j; i++) {
         buffer.push(records[i].join(" = "));
     }
-    var ref = "{{cytuj stronę | "+buffer.join(" | ")+" }}";
+    var ref = "<ref>{{cytuj stronę | "+buffer.join(" | ")+" }}</ref>";
 
     navigator.clipboard.writeText(ref).then(function() {
         console.log("Clipboard written");
