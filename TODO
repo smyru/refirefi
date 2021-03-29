@@ -1,14 +1,17 @@
+Tests
+
 Proper name and icons
 
-Chromium support
+Wider data detection:
+    author variable is especially affected by poor data availability.
+    Perhaps application/ld+json handling
 
 Localization:
     Add more languages. All compatible with the logic are fully eligible.
     Note that ie. Spanish template expects a custom localized date format,
     that would require logic exceptions.
 
-Wider data detection:
-    author is especially affected by poor data availability.
-    application/ld+json handling
+    That would either require creating a popup or implementing settings to
+    choose default language of operation, or both.
 
-Settings
+Chromium support
