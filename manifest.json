@@ -17,11 +17,11 @@
         }
     ],
     "browser_action": {
-        "default_icon": "images/icon.ico",
+        "default_icon": "images/icon.svg",
         "default_title": "Quote",
         "browser_style": true
     },
     "icons": {
-        "48": "images/icon.ico"
+        "96": "images/icon.svg"
     }
 }
