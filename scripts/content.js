@@ -115,7 +115,7 @@ function gather() {
                     if (root && root.getAttribute("lang"))
                         l = root.getAttribute("lang");
                 }
-                pair.push(l.substring(0,2));
+                pair.push(l && l.length > 0 ? l.substring(0,2) : null);
                 break;
             case "archive-url":
                 if (is_archived(get_raw_url()))
