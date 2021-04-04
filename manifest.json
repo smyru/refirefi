@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Wikired",
-    "description": "Pomocnik Wiki Redaktora",
-    "version": "0.3",
+    "name": "RefiRefi",
+    "description": "Pomocnik redaktora Wikipedii",
+    "version": "0.4",
     "permissions": [
         "activeTab",
         "clipboardWrite"
@@ -18,7 +18,7 @@
     ],
     "browser_action": {
         "default_icon": "images/icon.svg",
-        "default_title": "Quote",
+        "default_title": "Cytuj stronę",
         "browser_style": true
     },
     "icons": {
