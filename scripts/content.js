@@ -141,15 +141,8 @@ function gather() {
     for (var i = 0, j = records.length; i < j; i++) {
         buffer.push(records[i].join(" = "));
     }
-    var ref = "<ref>{{cytuj stronę | "+buffer.join(" | ")+" }}</ref>";
 
-    navigator.clipboard.writeText(ref).then(function() {
-        console.log("Clipboard written");
-        return true;
-    }, function() {
-        console.log("ERROR writing to clipboard");
-        return false;
-    });
+    return "<ref>{{cytuj stronę | "+buffer.join(" | ")+" }}</ref>";
 }
 
 browser.runtime.onMessage.addListener(msg => {
