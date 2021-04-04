@@ -43,12 +43,12 @@ function iso2date(dt) {
 function get_meta(name, type) {
     type = type || "property";
 
-    var e = document.querySelector("meta["+type+"='"+name+"']");
+    var e = document.querySelector("meta["+type+"='"+name+"' i]");
     if (e && e.getAttribute("content"))
         return e.getAttribute("content");
 }
 function get_link(name) {
-    var e = document.querySelector("link[rel='"+name+"']");
+    var e = document.querySelector("link[rel='"+name+"' i]");
     if (e && e.getAttribute("href"))
         return e.getAttribute("href");
 }
